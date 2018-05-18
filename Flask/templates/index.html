@@ -1,0 +1,41 @@
+<!doctype html>
+
+<html>
+
+    <head>
+        <title>OUAP4314</title>
+        <meta charset="utf-8" />
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/style.css') }}">
+    </head>
+
+    <body>
+    	<div id="navegacao">
+			<div id="area">
+				<h1 id="logo"><span class="verde">Monuments de Paris</h1>
+			</div>
+		</div>
+        <div id="area-principal">
+        	<div id="postagem">
+            <form action="/search" method="post">
+        	<input type="text" name= "title"  placeholder="">
+        	<button font-family: "Trebuchet MS" type="submit"> Search</button>
+            </form>
+        	</div>  
+        	{% for link in links %}
+            <div id="postagem">
+            <h2>{{ link['title'] }}</h2>
+        	<span class= "postagem-data"></span>
+            <span class= "postagem-data"><b>ADRESSE:</b>{{ link ['adresse']}}</span>  
+            <span class= "postagem-data"><b>DATE PROCTETION:</b>{{ link ['date_protection']}}</span>  
+            <span class= "postagem-data"><b>ELEMENTS:</b> {{ link ['elements']}};</span>  
+            </div> 
+			{% endfor %}
+
+        </div>
+
+    </body>
+
+</html>
+
+
+
